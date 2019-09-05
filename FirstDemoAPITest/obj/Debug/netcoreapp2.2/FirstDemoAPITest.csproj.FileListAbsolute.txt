@@ -1,0 +1,16 @@
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\bin\Debug\netcoreapp2.2\FirstDemoAPITest.deps.json
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\bin\Debug\netcoreapp2.2\FirstDemoAPITest.runtimeconfig.json
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\bin\Debug\netcoreapp2.2\FirstDemoAPITest.runtimeconfig.dev.json
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\bin\Debug\netcoreapp2.2\FirstDemoAPITest.dll
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\bin\Debug\netcoreapp2.2\FirstDemoAPITest.pdb
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\bin\Debug\netcoreapp2.2\FirstDemoAPI.dll
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\bin\Debug\netcoreapp2.2\FirstDemoAPI.pdb
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\obj\Debug\netcoreapp2.2\FirstDemoAPITest.csprojResolveAssemblyReference.cache
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\obj\Debug\netcoreapp2.2\FirstDemoAPITest.csproj.CoreCompileInputs.cache
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\obj\Debug\netcoreapp2.2\FirstDemoAPITest.AssemblyInfoInputs.cache
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\obj\Debug\netcoreapp2.2\FirstDemoAPITest.AssemblyInfo.cs
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\obj\Debug\netcoreapp2.2\FirstDemoAPITest.dll
+C:\Users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPITest\obj\Debug\netcoreapp2.2\FirstDemoAPITest.pdb

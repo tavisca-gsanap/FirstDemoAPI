@@ -1,0 +1,14 @@
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\bin\Debug\netcoreapp2.2\FirstDemoAPI.deps.json
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\bin\Debug\netcoreapp2.2\FirstDemoAPI.runtimeconfig.json
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\bin\Debug\netcoreapp2.2\FirstDemoAPI.runtimeconfig.dev.json
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\bin\Debug\netcoreapp2.2\FirstDemoAPI.dll
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\bin\Debug\netcoreapp2.2\FirstDemoAPI.pdb
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\obj\Debug\netcoreapp2.2\FirstDemoAPI.csprojResolveAssemblyReference.cache
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\obj\Debug\netcoreapp2.2\FirstDemoAPI.csproj.CoreCompileInputs.cache
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\obj\Debug\netcoreapp2.2\FirstDemoAPI.RazorAssemblyInfo.cache
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\obj\Debug\netcoreapp2.2\FirstDemoAPI.RazorAssemblyInfo.cs
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\obj\Debug\netcoreapp2.2\FirstDemoAPI.AssemblyInfoInputs.cache
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\obj\Debug\netcoreapp2.2\FirstDemoAPI.AssemblyInfo.cs
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\obj\Debug\netcoreapp2.2\FirstDemoAPI.RazorTargetAssemblyInfo.cache
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\obj\Debug\netcoreapp2.2\FirstDemoAPI.dll
+c:\users\gsanap\source\repos\FirstDemoAPI\FirstDemoAPI\obj\Debug\netcoreapp2.2\FirstDemoAPI.pdb
