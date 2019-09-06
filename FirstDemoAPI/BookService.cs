@@ -10,8 +10,8 @@ namespace FirstDemoAPI
     {
         List<Book> Get();
         Book Get(int id);
-        string Post(Book book);
-        string Put(int id, Book book);
+        BookResponse Post(Book book);
+        BookResponse Put(int id, Book book);
         void Delete(int id);
         
     }
@@ -28,18 +28,20 @@ namespace FirstDemoAPI
             return book;
         }
 
-        public string Post(Book book)
+        public BookResponse Post(Book book)
         {
-            string status = BookValidator.Check(book);
-            BookDataStore.Post(book);
-            return status;
+            BookResponse bookResponse = BookValidator.Check(new BookResponse(), book);
+            if (bookResponse._errorList.Count == 0)
+                bookResponse.Response= BookDataStore.Post(book);
+            return bookResponse;
         }
 
-        public string Put(int id, Book book)
+        public BookResponse Put(int id, Book book)
         {
-            string status = BookValidator.Check(book);
-            BookDataStore.Put(id, book);
-            return status;
+            BookResponse bookResponse = BookValidator.Check(new BookResponse(), book);
+            if (bookResponse._errorList.Count == 0)
+                bookResponse.Response = BookDataStore.Put(id, book);
+            return bookResponse;
         }
         public void Delete(int id)
         {

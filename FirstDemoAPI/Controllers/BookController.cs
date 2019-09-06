@@ -39,16 +39,22 @@ namespace FirstDemoAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public string Post([FromBody]Book book)
+        public IActionResult Post([FromBody]Book book)
         {
-            return _bookService.Post(book);
+            BookResponse bookResponse = _bookService.Post(book);
+            if (bookResponse._errorList.Count == 0)
+                return Ok(bookResponse.Response);
+            return BadRequest(bookResponse._errorList);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public string Put(int id, [FromBody]Book book)
+        public IActionResult Put(int id, [FromBody]Book book)
         {
-            return _bookService.Put(id,book);
+            BookResponse bookResponse = _bookService.Put(id,book);
+            if (bookResponse._errorList.Count == 0)
+                return Ok(bookResponse.Response);
+            return BadRequest(bookResponse._errorList);
         }
 
         // DELETE api/values/5

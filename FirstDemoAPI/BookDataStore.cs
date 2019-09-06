@@ -20,16 +20,18 @@ namespace FirstDemoAPI
                 throw new BookNotFoundException();
             return BookList.Find((b) => b.Id == id);
         }
-        public static void Post(Book book)
+        public static Book Post(Book book)
         {
             BookList.Add(book);
+            return book;
         }
-        public static void Put(int id,Book updatedBook)
+        public static Book Put(int id,Book updatedBook)
         {
             Book book = BookList.Find((b) => b.Id == id);
             if (book == null)
                 throw new BookNotFoundException();
             book.CopyPropertiesFrom(updatedBook);
+            return book;
         }
         public static void Delete(int id)
         {

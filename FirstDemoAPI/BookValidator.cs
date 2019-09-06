@@ -6,22 +6,24 @@ namespace FirstDemoAPI
 {
     public class BookValidator
     {
-        public static string Check(Book book)
+        public static BookResponse Check(BookResponse bookResponse,Book book)
         {
-            string message = "";
             if (book.Id < 0)
-                message += "Invalid Id, Id should be a positive number.";
+                bookResponse._errorList.Add(new Error(400,
+                    "Invalid Id, Id should be a positive number."));
             if (book.Price < 0)
-                message += "Invalid Price, Price cannot be negative.";
+                bookResponse._errorList.Add(new Error(400,
+                    "Invalid Price, Price cannot be negative."));
             if (!book.Name.All(Char.IsLetter))
-                message += "Invalid Name, should contain alphabets only.";
+                bookResponse._errorList.Add(new Error(400,
+                    "Invalid Name, should contain alphabets only."));
             if(!book.Category.All(Char.IsLetter))
-                message += "Invalid Category, should contain alphabets only.";
+                bookResponse._errorList.Add(new Error(400,
+                    "Invalid Category, should contain alphabets only."));
             if (!book.Author.All(Char.IsLetter))
-                message += "Invalid Author, should contain alphabets only.";
-            if(message=="")
-                return $"Success, Book with id : {book.Id} has been Updated";
-            return message;
+                bookResponse._errorList.Add(new Error(400,
+                    "Invalid Author, should contain alphabets only."));
+            return bookResponse;
         }
     }
 }

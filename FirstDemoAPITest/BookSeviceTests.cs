@@ -31,7 +31,7 @@ namespace FirstDemoAPITest
         {
             Book book = new Book { Id = -1, Name = "WingsOfFire", Author = "APJKalam" };
             string expected = "Invalid Id, Id should be a positive number.";
-            Assert.Equal(expected, _bookService.Post(book));
+            Assert.Equal(expected, _bookService.Post(book)._errorList[0].Message);
         }
 
         [Fact]
@@ -39,7 +39,7 @@ namespace FirstDemoAPITest
         {
             Book book = new Book { Id = 1, Name = "WingsOfFire", Author = "APJKalam",Price=-12,Category="BioGraphy" };
             string expected = "Invalid Price, Price cannot be negative.";
-            Assert.Equal(expected, _bookService.Post(book));
+            Assert.Equal(expected, _bookService.Post(book)._errorList[0].Message);
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace FirstDemoAPITest
         {
             Book book = new Book { Id = 1, Name = "WingsOf#Fire", Author = "APJKalam", Price = 12, Category = "BioGraphy" };
             string expected = "Invalid, should contain alphabets only.";
-            Assert.Equal(expected, _bookService.Post(book));
+            Assert.Equal(expected, _bookService.Post(book)._errorList[0].Message);
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace FirstDemoAPITest
         {
             Book book = new Book { Id = 1, Name = "WingsOfFire", Author = "APJKalam", Price = 12, Category = "Bio 1Graphy" };
             string expected = "Invalid, should contain alphabets only.";
-            Assert.Equal(expected, _bookService.Post(book));
+            Assert.Equal(expected, _bookService.Post(book)._errorList[0].Message);
         }
 
         [Fact]
@@ -63,7 +63,7 @@ namespace FirstDemoAPITest
         {
             Book book = new Book { Id = 1, Name = "WingsOfFire", Author = "APJ Kalam", Price = 12, Category = "BioGraphy" };
             string expected = "Invalid, should contain alphabets only.";
-            Assert.Equal(expected, _bookService.Post(book));
+            Assert.Equal(expected, _bookService.Post(book)._errorList[0].Message);
         }
 
         [Fact]
@@ -71,7 +71,8 @@ namespace FirstDemoAPITest
         {
             Book book = new Book { Id = 1, Name = "WingsOfFire", Author = "APJ Kalam", Price = -12, Category = "BioGraphy" };
             string expected = "Invalid Price, Price cannot be negative."+ "Invalid Author, should contain alphabets only.";
-            Assert.Equal(expected, _bookService.Post(book));
+            List<Error> errorList = _bookService.Post(book)._errorList;
+            Assert.Equal(expected, errorList[0].Message+errorList[1].Message);
         }
 
         [Fact]
