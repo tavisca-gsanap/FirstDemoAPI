@@ -9,7 +9,7 @@ namespace FirstDemoAPI
     public interface IBookService
     {
         List<Book> Get();
-        Book Get(int id);
+        BookResponse Get(int id);
         BookResponse Post(Book book);
         BookResponse Put(int id, Book book);
         void Delete(int id);
@@ -22,10 +22,20 @@ namespace FirstDemoAPI
             return BookDataStore.Get();
         }
 
-        public Book Get(int id)
+        public BookResponse Get(int id)
         {
-            Book book = BookDataStore.Get(id);
-            return book;
+            BookResponse bookResponse = new BookResponse();
+            try
+            {
+                Book book = BookDataStore.Get(id);
+                bookResponse.Response = book;
+            }
+            catch (BookNotFoundException)
+            {
+                bookResponse._errorList.Add(new Error(404,
+                    $"Book with given id : {id} Not Found"));
+            }
+            return bookResponse;
         }
 
         public BookResponse Post(Book book)

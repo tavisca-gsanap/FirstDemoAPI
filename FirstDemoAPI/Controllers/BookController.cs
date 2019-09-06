@@ -26,15 +26,10 @@ namespace FirstDemoAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            try
-            {
-                Book book = _bookService.Get(id);
-                return Ok(book);
-            }
-            catch(BookNotFoundException)
-            {
-                return NotFound($"Book with given id : {id} Not Found");
-            }
+            BookResponse bookResponse = _bookService.Get(id);
+            if (bookResponse._errorList.Count == 0)
+                return Ok(bookResponse.Response);
+            return NotFound(bookResponse._errorList);
         }
 
         // POST api/values
