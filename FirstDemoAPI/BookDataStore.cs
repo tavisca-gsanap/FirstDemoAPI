@@ -8,7 +8,7 @@ namespace FirstDemoAPI
 {
     public class BookDataStore
     {
-        public static List<Book> BookList = new List<Book>();
+        private static List<Book> BookList = new List<Book>();
         public static List<Book> Get()
         {
             return BookList;
@@ -18,7 +18,7 @@ namespace FirstDemoAPI
             Book book = BookList.Find((b) => b.Id == id);
             if (book == null)
                 throw new BookNotFoundException();
-            return BookList.Find((b) => b.Id == id);
+            return book;
         }
         public static Book Post(Book book)
         {
@@ -33,12 +33,13 @@ namespace FirstDemoAPI
             book.CopyPropertiesFrom(updatedBook);
             return book;
         }
-        public static void Delete(int id)
+        public static Book Delete(int id)
         {
             Book book = BookList.Find((b) => b.Id == id);
             if (book == null)
                 throw new BookNotFoundException();
             BookList.Remove(book);
+            return book;
         }
     }
 }

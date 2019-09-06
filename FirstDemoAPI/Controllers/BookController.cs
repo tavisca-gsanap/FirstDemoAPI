@@ -27,9 +27,9 @@ namespace FirstDemoAPI.Controllers
         public IActionResult Get(int id)
         {
             BookResponse bookResponse = _bookService.Get(id);
-            if (bookResponse._errorList.Count == 0)
+            if (bookResponse.ErrorList.Count == 0)
                 return Ok(bookResponse.Response);
-            return NotFound(bookResponse._errorList);
+            return NotFound(bookResponse.ErrorList);
         }
 
         // POST api/values
@@ -37,9 +37,9 @@ namespace FirstDemoAPI.Controllers
         public IActionResult Post([FromBody]Book book)
         {
             BookResponse bookResponse = _bookService.Post(book);
-            if (bookResponse._errorList.Count == 0)
+            if (bookResponse.ErrorList.Count == 0)
                 return Ok(bookResponse.Response);
-            return BadRequest(bookResponse._errorList);
+            return BadRequest(bookResponse.ErrorList);
         }
 
         // PUT api/values/5
@@ -47,16 +47,19 @@ namespace FirstDemoAPI.Controllers
         public IActionResult Put(int id, [FromBody]Book book)
         {
             BookResponse bookResponse = _bookService.Put(id,book);
-            if (bookResponse._errorList.Count == 0)
+            if (bookResponse.ErrorList.Count == 0)
                 return Ok(bookResponse.Response);
-            return BadRequest(bookResponse._errorList);
+            return BadRequest(bookResponse.ErrorList);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-            _bookService.Delete(id);
+            BookResponse bookResponse = _bookService.Delete(id);
+            if (bookResponse.ErrorList.Count == 0)
+                return Ok(bookResponse.Response);
+            return BadRequest(bookResponse.ErrorList);
         }
     }
 }

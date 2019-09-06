@@ -12,7 +12,7 @@ namespace FirstDemoAPI
         BookResponse Get(int id);
         BookResponse Post(Book book);
         BookResponse Put(int id, Book book);
-        void Delete(int id);
+        BookResponse Delete(int id);
         
     }
     public class BookService : IBookService
@@ -32,7 +32,7 @@ namespace FirstDemoAPI
             }
             catch (BookNotFoundException)
             {
-                bookResponse._errorList.Add(new Error(404,
+                bookResponse.ErrorList.Add(new Error(404,
                     $"Book with given id : {id} Not Found"));
             }
             return bookResponse;
@@ -41,7 +41,7 @@ namespace FirstDemoAPI
         public BookResponse Post(Book book)
         {
             BookResponse bookResponse = BookValidator.Check(new BookResponse(), book);
-            if (bookResponse._errorList.Count == 0)
+            if (bookResponse.ErrorList.Count == 0)
                 bookResponse.Response= BookDataStore.Post(book);
             return bookResponse;
         }
@@ -49,13 +49,33 @@ namespace FirstDemoAPI
         public BookResponse Put(int id, Book book)
         {
             BookResponse bookResponse = BookValidator.Check(new BookResponse(), book);
-            if (bookResponse._errorList.Count == 0)
-                bookResponse.Response = BookDataStore.Put(id, book);
+            if (bookResponse.ErrorList.Count == 0)
+            {
+                try
+                {
+                    bookResponse.Response = BookDataStore.Put(id, book);
+                }
+                catch (BookNotFoundException)
+                {
+                    bookResponse.ErrorList.Add(new Error(404,
+                        $"Book with given id : {id} Not Found"));
+                }
+            }
             return bookResponse;
         }
-        public void Delete(int id)
+        public BookResponse Delete(int id)
         {
-            BookDataStore.Delete(id);
+            BookResponse bookResponse = new BookResponse();
+            try
+            {
+                bookResponse.Response = BookDataStore.Delete(id);
+            }
+            catch (BookNotFoundException)
+            {
+                bookResponse.ErrorList.Add(new Error(404,
+                        $"Book with given id : {id} Not Found"));
+            }
+            return bookResponse;
         }
     }
 }

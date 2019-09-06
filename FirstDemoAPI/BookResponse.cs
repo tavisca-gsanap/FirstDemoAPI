@@ -8,7 +8,7 @@ namespace FirstDemoAPI
 {
     public class BookResponse
     {
-        public List<Error> _errorList = new List<Error>();
+        public List<Error> ErrorList = new List<Error>();
         public Book Response { get; set; }
     }
 }
