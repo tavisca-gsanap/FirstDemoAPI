@@ -29,7 +29,7 @@ namespace FirstDemoAPITest
         [Fact]
         public void Add_Book_With_Negative_Id_Test()
         {
-            Book book = new Book { Id = -1, Name = "WingsOfFire", Author = "APJKalam" };
+            Book book = new Book { Id = -1, Name = "WingsOfFire", Author = "APJKalam", Category = "BioGraphy", Price = 12 };
             string expected = "Invalid Id, Id should be a positive number.";
             Assert.Equal(expected, _bookService.Post(book)._errorList[0].Message);
         }
@@ -46,7 +46,7 @@ namespace FirstDemoAPITest
         public void Add_Book_With_Invalid_Name_Test()
         {
             Book book = new Book { Id = 1, Name = "WingsOf#Fire", Author = "APJKalam", Price = 12, Category = "BioGraphy" };
-            string expected = "Invalid, should contain alphabets only.";
+            string expected = "Invalid Name, should contain alphabets only.";
             Assert.Equal(expected, _bookService.Post(book)._errorList[0].Message);
         }
 
@@ -54,7 +54,7 @@ namespace FirstDemoAPITest
         public void Add_Book_With_Invalid_Category_Test()
         {
             Book book = new Book { Id = 1, Name = "WingsOfFire", Author = "APJKalam", Price = 12, Category = "Bio 1Graphy" };
-            string expected = "Invalid, should contain alphabets only.";
+            string expected = "Invalid Category, should contain alphabets only.";
             Assert.Equal(expected, _bookService.Post(book)._errorList[0].Message);
         }
 
@@ -62,7 +62,7 @@ namespace FirstDemoAPITest
         public void Add_Book_With_Invalid_Author_Test()
         {
             Book book = new Book { Id = 1, Name = "WingsOfFire", Author = "APJ Kalam", Price = 12, Category = "BioGraphy" };
-            string expected = "Invalid, should contain alphabets only.";
+            string expected = "Invalid Author, should contain alphabets only.";
             Assert.Equal(expected, _bookService.Post(book)._errorList[0].Message);
         }
 
@@ -82,7 +82,7 @@ namespace FirstDemoAPITest
             _bookService.Post(book);
             Book newBook = new Book { Id = 1, Name = "WingsOfFire", Author = "APJKalam",Category="BioGraphy",Price=12 };
             _bookService.Put(1, newBook);
-            var updatedBook = _bookService.Get(1);
+            var updatedBook = _bookService.Get(1).Response;
             Assert.Equal(newBook.Author, updatedBook.Author);
         }
 
