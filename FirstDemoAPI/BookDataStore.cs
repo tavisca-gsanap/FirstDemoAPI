@@ -29,10 +29,7 @@ namespace FirstDemoAPI
             Book book = BookList.Find((b) => b.Id == id);
             if (book == null)
                 throw new BookNotFoundException();
-            book.Name = updatedBook.Name;
-            book.Author = updatedBook.Author;
-            book.Category = updatedBook.Category;
-            book.Price = updatedBook.Price;
+            book.CopyPropertiesFrom(updatedBook);
         }
         public static void Delete(int id)
         {

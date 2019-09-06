@@ -26,7 +26,7 @@ namespace FirstDemoAPITest
         [Fact]
         public void Update_Book_Test()
         {   
-            Book book = new Book { Id = 1, Name = "WingsOfFire", Author = "GovindSanap" };
+            Book book = new Book { Id = 1, Name = "WingsOfFire", Author = "GovindSanap", Category = "BioGraphy", Price = 12 };
             BookDataStore.Post(book);
             Book newBook = new Book { Id = 1, Name = "WingsOfFire", Author = "APJKalam",Category="BioGraphy",Price=12 };
             BookDataStore.Put(1, newBook);
