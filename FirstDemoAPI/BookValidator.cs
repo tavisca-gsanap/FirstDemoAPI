@@ -8,13 +8,20 @@ namespace FirstDemoAPI
     {
         public static string Check(Book book)
         {
+            string message = "";
             if (book.Id < 0)
-                return "Invalid Id, Id should be a positive number.";
+                message += "Invalid Id, Id should be a positive number.";
             if (book.Price < 0)
-                return "Invalid Price, Price cannot be negative.";
-            if (!book.Name.All(Char.IsLetter) || !book.Category.All(Char.IsLetter) || !book.Author.All(Char.IsLetter))
-                return "Invalid, should contain alphabets only.";
-            return $"Success, Book with id : {book.Id} has been Updated";
+                message += "Invalid Price, Price cannot be negative.";
+            if (!book.Name.All(Char.IsLetter))
+                message += "Invalid Name, should contain alphabets only.";
+            if(!book.Category.All(Char.IsLetter))
+                message += "Invalid Category, should contain alphabets only.";
+            if (!book.Author.All(Char.IsLetter))
+                message += "Invalid Author, should contain alphabets only.";
+            if(message=="")
+                return $"Success, Book with id : {book.Id} has been Updated";
+            return message;
         }
     }
 }

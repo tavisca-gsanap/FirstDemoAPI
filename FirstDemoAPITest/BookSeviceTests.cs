@@ -67,6 +67,14 @@ namespace FirstDemoAPITest
         }
 
         [Fact]
+        public void Add_Book_With_Invalid_Price_And_Invalid_Author_Test()
+        {
+            Book book = new Book { Id = 1, Name = "WingsOfFire", Author = "APJ Kalam", Price = -12, Category = "BioGraphy" };
+            string expected = "Invalid Price, Price cannot be negative."+ "Invalid Author, should contain alphabets only.";
+            Assert.Equal(expected, _bookService.Post(book));
+        }
+
+        [Fact]
         public void Update_Book_Test()
         {
             Book book = new Book { Id = 1, Name = "WingsOfFire", Author = "GovindSanap", Category = "BioGraphy", Price = 12 };
